@@ -184,7 +184,6 @@
     color: var(--text-secondary);
 }
 
-/* Index Number */
 .experience-index {
     position: absolute;
     bottom: 1rem;
@@ -195,4 +194,70 @@
     line-height: 1;
     pointer-events: none;
     opacity: 0.5;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .experience-card {
+        padding: 1.5rem;
+        margin-left: 40px;
+    }
+
+    .experience-marker {
+        left: -30px;
+        width: 12px;
+        height: 12px;
+    }
+
+    .experience-header {
+        gap: 0.75rem;
+    }
+
+    .experience-logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .experience-role {
+        font-size: 1.125rem;
+    }
+
+    .experience-description {
+        font-size: 0.875rem;
+    }
+
+    .experience-duration {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+    }
+
+    .experience-index {
+        font-size: 3rem;
+        right: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .experience-card {
+        padding: 1rem;
+        margin-left: 35px;
+        margin-bottom: 1.5rem;
+    }
+
+    .timeline-line {
+        left: 15px;
+    }
+
+    .experience-marker {
+        left: -25px;
+    }
+
+    .experience-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .experience-duration {
+        margin-top: 0.25rem;
+    }
 }

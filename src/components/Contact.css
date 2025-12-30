@@ -286,3 +286,71 @@
 .contact-link:hover svg {
     opacity: 1;
 }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .contact-section {
+        min-height: auto;
+        padding: 4rem 0;
+    }
+
+    .contact-heading {
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
+    }
+
+    .contact-text {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .contact-glow-1,
+    .contact-glow-2 {
+        width: 250px;
+        height: 250px;
+    }
+
+    .contact-links {
+        gap: 0.75rem;
+    }
+
+    .contact-link {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-section {
+        padding: 3rem 0;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 0.75rem;
+        font-size: 16px;
+        /* Prevents iOS zoom on focus */
+    }
+
+    .form-submit {
+        padding: 0.875rem 1.5rem;
+    }
+
+    .contact-email {
+        font-size: clamp(1rem, 4vw, 1.25rem);
+        word-break: break-all;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .contact-link {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .contact-divider span {
+        font-size: 0.7rem;
+    }
+}

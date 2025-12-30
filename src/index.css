@@ -9,36 +9,36 @@
   --bg-secondary: #0a0a0a;
   --bg-tertiary: #111111;
   --bg-card: #0d0d0d;
-  
+
   /* Text Colors */
   --text-primary: #ffffff;
   --text-secondary: #b0b0b0;
   --text-muted: #666666;
   --text-accent: #e0e0e0;
-  
+
   /* Accent Colors */
   --accent-blue: #3b82f6;
   --accent-purple: #8b5cf6;
   --accent-cyan: #06b6d4;
   --accent-pink: #ec4899;
   --accent-emerald: #10b981;
-  
+
   /* Glow Colors */
   --glow-blue: rgba(59, 130, 246, 0.4);
   --glow-purple: rgba(139, 92, 246, 0.4);
   --glow-cyan: rgba(6, 182, 212, 0.3);
   --glow-pink: rgba(236, 72, 153, 0.3);
-  
+
   /* Glass Effect */
   --glass-bg: rgba(255, 255, 255, 0.03);
   --glass-bg-hover: rgba(255, 255, 255, 0.06);
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-border-hover: rgba(255, 255, 255, 0.15);
-  
+
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
   --gradient-glow: radial-gradient(ellipse at center, var(--glow-purple) 0%, transparent 70%);
-  
+
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-weight-light: 300;
@@ -47,25 +47,25 @@
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
   --font-weight-extrabold: 800;
-  
+
   /* Spacing */
   --section-padding: clamp(4rem, 10vw, 8rem);
   --container-max: 1400px;
   --container-padding: clamp(1.5rem, 5vw, 4rem);
-  
+
   /* Transitions */
   --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-smooth: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  
+
   /* Border Radius */
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 20px;
   --radius-xl: 32px;
   --radius-full: 9999px;
-  
+
   /* Shadows */
   --shadow-glow: 0 0 60px -15px var(--glow-purple);
   --shadow-card: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
@@ -115,7 +115,12 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 /* === Typography === */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: var(--font-weight-bold);
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -253,19 +258,25 @@ a:hover {
 
 /* === Animations === */
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }
 }
 
 @keyframes pulse-glow {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.4;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.8;
     transform: scale(1.05);
@@ -277,6 +288,7 @@ a:hover {
     opacity: 0;
     transform: translateY(40px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -287,6 +299,7 @@ a:hover {
   0% {
     background-position: -200% 0;
   }
+
   100% {
     background-position: 200% 0;
   }
@@ -307,7 +320,63 @@ a:hover {
 /* === Media Queries === */
 @media (max-width: 768px) {
   :root {
-    --section-padding: clamp(3rem, 8vw, 5rem);
+    --section-padding: clamp(2.5rem, 6vw, 4rem);
+    --container-padding: clamp(1rem, 4vw, 2rem);
+  }
+
+  h1 {
+    font-size: clamp(2rem, 7vw, 3.5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 4vw, 1.75rem);
+  }
+
+  p {
+    font-size: clamp(0.875rem, 1.2vw, 1rem);
+  }
+
+  .btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.8125rem;
+    min-height: 44px;
+    /* Minimum touch target */
+  }
+
+  .section-title {
+    font-size: 0.6875rem;
+    letter-spacing: 0.15em;
+  }
+}
+
+/* Extra small devices (phones in portrait) */
+@media (max-width: 480px) {
+  :root {
+    --section-padding: clamp(2rem, 5vw, 3rem);
+    --container-padding: 1rem;
+  }
+
+  h1 {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.375rem, 6vw, 2rem);
+  }
+
+  .btn {
+    padding: 0.625rem 1rem;
+    font-size: 0.75rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .glass-card {
+    border-radius: var(--radius-md);
   }
 }
 
@@ -317,13 +386,16 @@ a:hover {
     transform: scaleX(0);
     transform-origin: left;
   }
+
   50% {
     transform: scaleX(1);
     transform-origin: left;
   }
+
   50.01% {
     transform-origin: right;
   }
+
   100% {
     transform: scaleX(0);
     transform-origin: right;

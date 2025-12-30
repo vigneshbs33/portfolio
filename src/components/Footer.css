@@ -67,3 +67,40 @@
     font-size: 0.8125rem;
     color: var(--text-muted);
 }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .footer {
+        padding: 2rem 0;
+    }
+
+    .footer-content {
+        gap: 1rem;
+    }
+
+    .footer-logo {
+        font-size: 1.25rem;
+    }
+
+    .footer-links {
+        gap: 1.5rem;
+    }
+
+    .footer-links a,
+    .footer-tagline,
+    .footer-copyright {
+        font-size: 0.8125rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footer-links a {
+        font-size: 0.75rem;
+    }
+}

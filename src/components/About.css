@@ -246,3 +246,85 @@
     flex-shrink: 0;
     opacity: 0.5;
 }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .about-grid {
+        gap: 2.5rem;
+    }
+
+    .about-image-container {
+        max-width: 280px;
+    }
+
+    .about-heading {
+        font-size: clamp(1.25rem, 4vw, 1.75rem);
+    }
+
+    .about-roles {
+        gap: 0.5rem;
+    }
+
+    .about-role {
+        font-size: 0.75rem;
+        padding: 0.375rem 0.75rem;
+    }
+
+    .about-text p {
+        font-size: 0.9375rem;
+        line-height: 1.7;
+    }
+
+    .about-experience-card {
+        padding: 1rem;
+    }
+
+    .exp-logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .exp-role {
+        font-size: 0.9375rem;
+    }
+
+    .exp-company {
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-image-container {
+        max-width: 220px;
+    }
+
+    .about-image-frame {
+        inset: -10px;
+    }
+
+    .about-image-frame::before,
+    .about-image-frame::after {
+        width: 30px;
+        height: 30px;
+    }
+
+    .about-roles {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .about-role-divider {
+        display: none;
+    }
+
+    .about-experience-card {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .exp-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.375rem;
+    }
+}
