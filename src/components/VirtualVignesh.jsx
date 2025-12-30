@@ -206,24 +206,34 @@ const VirtualVignesh = ({ onOpenResume }) => {
         const jsonMatch = actionString.match(/\{\s*["']action["']\s*:\s*["']([^"']+)["'][^}]*["']section["']\s*:\s*["']([^"']+)["'][^}]*\}/i);
         const jsonMatchAlt = actionString.match(/\{\s*["']section["']\s*:\s*["']([^"']+)["'][^}]*["']action["']\s*:\s*["']([^"']+)["'][^}]*\}/i);
 
-        if (jsonMatch) {
-            // Handle JSON format - action first, then section
-            const action = jsonMatch[1].toLowerCase();
-            const section = jsonMatch[2].toLowerCase();
+        // Handle JSON format
+        let jsonAction = null;
+        let jsonSection = null;
 
-            if (action === 'scroll' || action === 'navigate' || action === 'go') {
-                smartNavigate(section);
-            }
-            return;
+        if (jsonMatch) {
+            jsonAction = jsonMatch[1].toLowerCase();
+            jsonSection = jsonMatch[2].toLowerCase();
+        } else if (jsonMatchAlt) {
+            jsonSection = jsonMatchAlt[1].toLowerCase();
+            jsonAction = jsonMatchAlt[2].toLowerCase();
         }
 
-        if (jsonMatchAlt) {
-            // Handle JSON format - section first, then action
-            const section = jsonMatchAlt[1].toLowerCase();
-            const action = jsonMatchAlt[2].toLowerCase();
+        if (jsonAction && jsonSection) {
+            // Handle resume specially - can open modal or navigate to page
+            if (jsonSection === 'resume') {
+                if (jsonAction === 'open' || jsonAction === 'download' || jsonAction === 'view') {
+                    onOpenResume?.();
+                    setLastAction('Opened resume');
+                } else {
+                    navigate('/resume');
+                    setLastAction('Navigated to resume');
+                }
+                return;
+            }
 
-            if (action === 'scroll' || action === 'navigate' || action === 'go') {
-                smartNavigate(section);
+            // Handle other navigation actions
+            if (['scroll', 'navigate', 'go', 'show', 'open', 'view'].includes(jsonAction)) {
+                smartNavigate(jsonSection);
             }
             return;
         }
