@@ -137,7 +137,58 @@ const VirtualVignesh = ({ onOpenResume }) => {
 
     // Execute actions from AI response
     const executeAction = useCallback((actionString) => {
+        // Try bracket format first: [ACTION:SCROLL_TO:section]
         const actionMatch = actionString.match(/\[ACTION:([^\]]+)\]/);
+
+        // Try JSON format: { "action": "scroll", "section": "certifications" }
+        const jsonMatch = actionString.match(/\{\s*["']action["']\s*:\s*["']([^"']+)["'][^}]*["']section["']\s*:\s*["']([^"']+)["'][^}]*\}/i);
+        const jsonMatchAlt = actionString.match(/\{\s*["']section["']\s*:\s*["']([^"']+)["'][^}]*["']action["']\s*:\s*["']([^"']+)["'][^}]*\}/i);
+
+        if (jsonMatch) {
+            // Handle JSON format - action first, then section
+            const action = jsonMatch[1].toLowerCase();
+            const section = jsonMatch[2].toLowerCase();
+
+            if (action === 'scroll' || action === 'navigate' || action === 'go') {
+                const element = document.getElementById(section);
+                if (element) {
+                    gsap.to(window, {
+                        duration: 1,
+                        scrollTo: { y: element, offsetY: 80 },
+                        ease: 'power3.inOut'
+                    });
+                    setLastAction(`Navigated to ${section}`);
+                } else {
+                    // Try navigating to page
+                    navigate(`/${section}`);
+                    setLastAction(`Navigated to ${section}`);
+                }
+            }
+            return;
+        }
+
+        if (jsonMatchAlt) {
+            // Handle JSON format - section first, then action
+            const section = jsonMatchAlt[1].toLowerCase();
+            const action = jsonMatchAlt[2].toLowerCase();
+
+            if (action === 'scroll' || action === 'navigate' || action === 'go') {
+                const element = document.getElementById(section);
+                if (element) {
+                    gsap.to(window, {
+                        duration: 1,
+                        scrollTo: { y: element, offsetY: 80 },
+                        ease: 'power3.inOut'
+                    });
+                    setLastAction(`Navigated to ${section}`);
+                } else {
+                    navigate(`/${section}`);
+                    setLastAction(`Navigated to ${section}`);
+                }
+            }
+            return;
+        }
+
         if (!actionMatch) return;
 
         const parts = actionMatch[1].split(':');
@@ -237,8 +288,11 @@ const VirtualVignesh = ({ onOpenResume }) => {
     };
 
     const cleanResponse = (text) => {
-        // Remove action tags for display
-        return text.replace(/\[ACTION:[^\]]+\]/g, '').trim();
+        // Remove action tags for display (both bracket and JSON formats)
+        let cleaned = text.replace(/\[ACTION:[^\]]+\]/g, '');
+        // Remove JSON action objects like { "action": "scroll", "section": "certifications" }
+        cleaned = cleaned.replace(/\{\s*["']action["']\s*:\s*["'][^}]+\}/gi, '');
+        return cleaned.trim();
     };
 
     const sendMessage = async () => {
