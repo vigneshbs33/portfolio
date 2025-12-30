@@ -135,6 +135,68 @@ const VirtualVignesh = ({ onOpenResume }) => {
         return { text: "That's a great question! Feel free to ask about my projects, skills, hackathon wins, or anything else. Or just tell me where you wanna go! 💬", action: null };
     };
 
+    // Map of sections to their routes and whether they exist on home page
+    const SECTION_MAP = {
+        'hero': { route: '/', isHomepageSection: true },
+        'about': { route: '/about', isHomepageSection: true },
+        'experience': { route: '/', isHomepageSection: true },
+        'projects': { route: '/work', isHomepageSection: true },
+        'work': { route: '/work', isHomepageSection: false },
+        'skills': { route: '/', isHomepageSection: true },
+        'achievements': { route: '/achievements', isHomepageSection: true },
+        'contact': { route: '/contact', isHomepageSection: true },
+        'resume': { route: '/resume', isHomepageSection: false },
+        'certifications': { route: '/certifications', isHomepageSection: false },
+    };
+
+    // Smart navigation helper - handles both sections and pages
+    const smartNavigate = useCallback((target) => {
+        const targetLower = target.toLowerCase();
+        const sectionInfo = SECTION_MAP[targetLower];
+
+        // Check if element exists on current page
+        const element = document.getElementById(targetLower);
+
+        if (element) {
+            // Element exists on current page - just scroll to it
+            gsap.to(window, {
+                duration: 1,
+                scrollTo: { y: element, offsetY: 80 },
+                ease: 'power3.inOut'
+            });
+            setLastAction(`Scrolled to ${target}`);
+            return;
+        }
+
+        if (sectionInfo) {
+            if (sectionInfo.isHomepageSection) {
+                // Navigate to home page then scroll to section
+                navigate('/');
+                setLastAction(`Going to ${target}...`);
+                // Wait for navigation then scroll
+                setTimeout(() => {
+                    const el = document.getElementById(targetLower);
+                    if (el) {
+                        gsap.to(window, {
+                            duration: 1,
+                            scrollTo: { y: el, offsetY: 80 },
+                            ease: 'power3.inOut'
+                        });
+                    }
+                    setLastAction(`Navigated to ${target}`);
+                }, 300);
+            } else {
+                // Navigate directly to the page
+                navigate(sectionInfo.route);
+                setLastAction(`Navigated to ${target}`);
+            }
+        } else {
+            // Unknown section - try navigating as a route
+            navigate(`/${targetLower}`);
+            setLastAction(`Navigated to ${target}`);
+        }
+    }, [navigate]);
+
     // Execute actions from AI response
     const executeAction = useCallback((actionString) => {
         // Try bracket format first: [ACTION:SCROLL_TO:section]
@@ -150,19 +212,7 @@ const VirtualVignesh = ({ onOpenResume }) => {
             const section = jsonMatch[2].toLowerCase();
 
             if (action === 'scroll' || action === 'navigate' || action === 'go') {
-                const element = document.getElementById(section);
-                if (element) {
-                    gsap.to(window, {
-                        duration: 1,
-                        scrollTo: { y: element, offsetY: 80 },
-                        ease: 'power3.inOut'
-                    });
-                    setLastAction(`Navigated to ${section}`);
-                } else {
-                    // Try navigating to page
-                    navigate(`/${section}`);
-                    setLastAction(`Navigated to ${section}`);
-                }
+                smartNavigate(section);
             }
             return;
         }
@@ -173,18 +223,7 @@ const VirtualVignesh = ({ onOpenResume }) => {
             const action = jsonMatchAlt[2].toLowerCase();
 
             if (action === 'scroll' || action === 'navigate' || action === 'go') {
-                const element = document.getElementById(section);
-                if (element) {
-                    gsap.to(window, {
-                        duration: 1,
-                        scrollTo: { y: element, offsetY: 80 },
-                        ease: 'power3.inOut'
-                    });
-                    setLastAction(`Navigated to ${section}`);
-                } else {
-                    navigate(`/${section}`);
-                    setLastAction(`Navigated to ${section}`);
-                }
+                smartNavigate(section);
             }
             return;
         }
@@ -197,15 +236,7 @@ const VirtualVignesh = ({ onOpenResume }) => {
 
         switch (actionType) {
             case 'SCROLL_TO':
-                const element = document.getElementById(param);
-                if (element) {
-                    gsap.to(window, {
-                        duration: 1,
-                        scrollTo: { y: element, offsetY: 80 },
-                        ease: 'power3.inOut'
-                    });
-                    setLastAction(`Navigated to ${param}`);
-                }
+                smartNavigate(param);
                 break;
 
             case 'NAVIGATE':
@@ -232,21 +263,13 @@ const VirtualVignesh = ({ onOpenResume }) => {
                 break;
 
             case 'START_CONTACT':
-                const contact = document.getElementById('contact');
-                if (contact) {
-                    gsap.to(window, {
-                        duration: 1,
-                        scrollTo: { y: contact, offsetY: 80 },
-                        ease: 'power3.inOut'
-                    });
-                }
-                setLastAction('Scrolled to contact');
+                smartNavigate('contact');
                 break;
 
             default:
                 break;
         }
-    }, [onOpenResume, navigate]);
+    }, [onOpenResume, navigate, smartNavigate]);
 
     useEffect(() => {
         if (isOpen && inputRef.current) {
