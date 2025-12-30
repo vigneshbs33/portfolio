@@ -151,11 +151,13 @@ const VirtualVignesh = ({ onOpenResume }) => {
 
     // Smart navigation helper - handles both sections and pages
     const smartNavigate = useCallback((target) => {
+        console.log('[VV] smartNavigate called with:', target);
         const targetLower = target.toLowerCase();
         const sectionInfo = SECTION_MAP[targetLower];
 
         // Check if element exists on current page
         const element = document.getElementById(targetLower);
+        console.log('[VV] Element found:', !!element, 'SectionInfo:', sectionInfo);
 
         if (element) {
             // Element exists on current page - just scroll to it
@@ -199,85 +201,99 @@ const VirtualVignesh = ({ onOpenResume }) => {
 
     // Execute actions from AI response
     const executeAction = useCallback((actionString) => {
-        // Try bracket format first: [ACTION:SCROLL_TO:section]
-        const actionMatch = actionString.match(/\[ACTION:([^\]]+)\]/);
+        console.log('[VV] executeAction called with:', actionString);
 
-        // Try JSON format: { "action": "scroll", "section": "certifications" }
-        const jsonMatch = actionString.match(/\{\s*["']action["']\s*:\s*["']([^"']+)["'][^}]*["']section["']\s*:\s*["']([^"']+)["'][^}]*\}/i);
-        const jsonMatchAlt = actionString.match(/\{\s*["']section["']\s*:\s*["']([^"']+)["'][^}]*["']action["']\s*:\s*["']([^"']+)["'][^}]*\}/i);
+        // Try to extract JSON action objects from the response
+        // API returns formats like: {"action": "navigate", "target": "projects"}
+        // or {"action": "scroll", "section": "about"}
+        const jsonPattern = /\{[^{}]*"action"\s*:\s*"([^"]+)"[^{}]*\}/gi;
+        const matches = actionString.matchAll(jsonPattern);
 
-        // Handle JSON format
-        let jsonAction = null;
-        let jsonSection = null;
+        for (const match of matches) {
+            try {
+                const jsonStr = match[0];
+                const parsed = JSON.parse(jsonStr);
+                console.log('[VV] Parsed JSON action:', parsed);
 
-        if (jsonMatch) {
-            jsonAction = jsonMatch[1].toLowerCase();
-            jsonSection = jsonMatch[2].toLowerCase();
-        } else if (jsonMatchAlt) {
-            jsonSection = jsonMatchAlt[1].toLowerCase();
-            jsonAction = jsonMatchAlt[2].toLowerCase();
-        }
+                const action = parsed.action?.toLowerCase();
+                const target = parsed.target?.toLowerCase() || parsed.section?.toLowerCase();
+                const project = parsed.project;
 
-        if (jsonAction && jsonSection) {
-            // Handle resume specially - can open modal or navigate to page
-            if (jsonSection === 'resume') {
-                if (jsonAction === 'open' || jsonAction === 'download' || jsonAction === 'view') {
+                if (action === 'navigate' && target) {
+                    console.log('[VV] Navigating to:', target);
+                    smartNavigate(target);
+                    return;
+                }
+
+                if (action === 'scroll' && target) {
+                    console.log('[VV] Scrolling to:', target);
+                    smartNavigate(target);
+                    return;
+                }
+
+                if (action === 'openresume') {
+                    console.log('[VV] Opening resume');
                     onOpenResume?.();
                     setLastAction('Opened resume');
-                } else {
-                    navigate('/resume');
-                    setLastAction('Navigated to resume');
+                    return;
                 }
-                return;
-            }
 
-            // Handle other navigation actions
-            if (['scroll', 'navigate', 'go', 'show', 'open', 'view'].includes(jsonAction)) {
-                smartNavigate(jsonSection);
+                if (action === 'showproject' && project) {
+                    console.log('[VV] Showing project:', project);
+                    smartNavigate('projects');
+                    return;
+                }
+            } catch (e) {
+                console.log('[VV] JSON parse failed for:', match[0], e);
             }
-            return;
         }
 
-        if (!actionMatch) return;
+        // Try bracket format: [ACTION:SCROLL_TO:section]
+        const actionMatch = actionString.match(/\[ACTION:([^\]]+)\]/);
+        if (actionMatch) {
+            console.log('[VV] Found bracket action:', actionMatch[1]);
+            const parts = actionMatch[1].split(':');
+            const actionType = parts[0];
+            const param = parts.slice(1).join(':');
 
-        const parts = actionMatch[1].split(':');
-        const actionType = parts[0];
-        const param = parts.slice(1).join(':');
+            switch (actionType) {
+                case 'SCROLL_TO':
+                    smartNavigate(param);
+                    break;
 
-        switch (actionType) {
-            case 'SCROLL_TO':
-                smartNavigate(param);
-                break;
+                case 'NAVIGATE':
+                    navigate(param);
+                    setLastAction(`Navigated to ${param}`);
+                    break;
 
-            case 'NAVIGATE':
-                navigate(param);
-                setLastAction(`Navigated to ${param}`);
-                break;
+                case 'OPEN_RESUME':
+                    onOpenResume?.();
+                    setLastAction('Opened resume');
+                    break;
 
-            case 'OPEN_RESUME':
-                onOpenResume?.();
-                setLastAction('Opened resume');
-                break;
+                case 'OPEN_LINK':
+                    if (param) {
+                        window.open(param, '_blank');
+                        setLastAction('Opened link');
+                    }
+                    break;
 
-            case 'OPEN_LINK':
-                if (param) {
-                    window.open(param, '_blank');
-                    setLastAction('Opened link');
-                }
-                break;
+                case 'COPY_EMAIL':
+                    navigator.clipboard.writeText(personalInfo.email);
+                    setLastAction('Email copied!');
+                    setTimeout(() => setLastAction(null), 2000);
+                    break;
 
-            case 'COPY_EMAIL':
-                navigator.clipboard.writeText(personalInfo.email);
-                setLastAction('Email copied!');
-                setTimeout(() => setLastAction(null), 2000);
-                break;
+                case 'START_CONTACT':
+                    smartNavigate('contact');
+                    break;
 
-            case 'START_CONTACT':
-                smartNavigate('contact');
-                break;
-
-            default:
-                break;
+                default:
+                    console.log('[VV] Unknown action type:', actionType);
+                    break;
+            }
+        } else {
+            console.log('[VV] No action pattern found in response');
         }
     }, [onOpenResume, navigate, smartNavigate]);
 
