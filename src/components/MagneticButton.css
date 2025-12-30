@@ -1,0 +1,12 @@
+.magnetic-button {
+    display: inline-flex;
+    position: relative;
+    will-change: transform;
+}
+
+.magnetic-button-content {
+    display: inline-flex;
+    align-items: center;
+    gap: inherit;
+    will-change: transform;
+}

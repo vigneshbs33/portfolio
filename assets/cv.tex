@@ -1,0 +1,253 @@
+
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT DEFINITION
+%----------------------------------------------------------------------------------------
+
+% article class because we want to fully customize the page and not use a cv template
+\documentclass[a4paper,12pt]{article}
+
+%----------------------------------------------------------------------------------------
+%	FONT
+%----------------------------------------------------------------------------------------
+
+% % fontspec allows you to use TTF/OTF fonts directly
+% \usepackage{fontspec}
+% \defaultfontfeatures{Ligatures=TeX}
+
+% % modified for ShareLaTeX use
+% \setmainfont[
+% SmallCapsFont = Fontin-SmallCaps.otf,
+% BoldFont = Fontin-Bold.otf,
+% ItalicFont = Fontin-Italic.otf
+% ]
+% {Fontin.otf}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{url}
+\usepackage{parskip} 	
+
+%other packages for formatting
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[scale=0.9]{geometry}
+
+%tabularx environment
+\usepackage{tabularx}
+
+%for lists within experience section
+\usepackage{enumitem}
+
+% centered version of 'X' col. type
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+%to prevent spillover of tabular into next pages
+\usepackage{supertabular}
+\usepackage{tabularx}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+%custom \section
+\usepackage{titlesec}				
+\usepackage{multicol}
+\usepackage{multirow}
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{10pt}{10pt}
+
+%for publications
+\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+
+%Setup hyperref package, and colours for links
+\usepackage[unicode, draft=false]{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+\addbibresource{citations.bib}
+\setlength\bibitemsep{1em}
+
+%for social icons
+\usepackage{fontawesome5}
+
+%debug page outer frames
+%\usepackage{showframe}
+
+
+% job listing environments
+\newenvironment{jobshort}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    }
+    {
+    }
+
+\newenvironment{joblong}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    \begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
+    }
+    {
+    \end{itemize}
+    \end{minipage}    
+    }
+
+
+
+%----------------------------------------------------------------------------------------
+%	BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+% non-numbered pages
+\pagestyle{empty} 
+
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+
+% \begin{tabularx}{\linewidth}{ @{}X X@{} }
+% \huge{Your Name}\vspace{2pt} & \hfill \emoji{incoming-envelope} email@email.com \\
+% \raisebox{-0.05\height}\faGithub\ username \ | \
+% \raisebox{-0.00\height}\faLinkedin\ username \ | \ \raisebox{-0.05\height}\faGlobe \ mysite.com  & \hfill \emoji{calling} number
+% \end{tabularx}
+
+\begin{tabularx}{\linewidth}{@{} C @{}}
+\Huge{Vignesh B S}\\[7.5pt]
+\href{https://github.com/vigneshbs33}{\raisebox{-0.05\height}\faGithub\ vignshbs33} \ $|$ \ 
+\href{https://linkedin.com/in/vigneshbs-dev}{\raisebox{-0.05\height}\faLinkedin\ vigneshbs.xyz} \ $|$ \ 
+\href{https://vigneshbs.xyz}{\raisebox{-0.05\height}\faGlobe \ vigneshbs.xyz} \ $|$ \ 
+\href{mailto:vignesh.bs06@gmail.com}{\raisebox{-0.05\height}\faEnvelope \ vignesh.bs06@gmail.com} \ $|$ \ 
+\href{tel:+919019526145}{\raisebox{-0.05\height}\faMobile \ +91901952615}\\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+% EXPERIENCE SECTIONS
+%----------------------------------------------------------------------------------------
+
+%Interests/ Keywords/ Summary
+\section{Summary}
+AI \& ML Engineer developing \textbf{agentic and neural-driven systems} that power intelligent automation. Working at \textbf{LessonPlan} as an \textbf{AI Systems Developer} and \textbf{GyanEdge} as a \textbf{Software Developer,} leveraging machine learning, cloud infrastructure, and full-stack development to build adaptive, real-time solutions. Skilled in \textbf{AI architecture design, deployment, and optimization}, with \textbf{several national and international hackathon wins} showcasing innovation and real-world impact.
+
+
+
+%Experience
+\section{Work Experience}
+
+\begin{jobshort}{AI Systems Developer, LessonPlan}{Nov 2025 – Present}
+Developing production-grade AI systems across ML pipelines, agentic frameworks, and generative architectures for an EdTech platform. Building and deploying adaptive models for personalized learning, integrating generative AI into classroom workflows, and optimizing automation pipelines for low-latency, scalable performance. Collaborating on cloud-native architectures, CI/CD automation, and monitoring for efficient model lifecycle management.
+\end{jobshort}
+
+\begin{jobshort}{Software Developer, GyanEdge (Part-Time)}{Mar 2025 – Present}
+Owning full-cycle development of educational platforms spanning frontend, backend, deployment, and AI integration. Implementing RESTful APIs, modular UI components, and real-time data systems; integrating ML models for student analytics; managing cloud data operations; and enhancing overall performance and reliability of large-scale interactive applications.
+\end{jobshort}
+
+\begin{jobshort}{QA Engineer – AI Interview Solutions, OpenIntervue (Intern)}{May 2025 – Jul 2025}
+Executed end-to-end QA for a live LLM-driven interview platform, validating model responses for accuracy, coherence, and contextual relevance. Designed and implemented automated test plans, logged performance metrics, and provided actionable insights to improve evaluation workflows, latency, and model monitoring pipelines.
+\end{jobshort}
+  
+
+
+\section{Projects}
+
+% --- put these once in the preamble ---
+
+
+% --- Projects table with blue clickable links ---
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+
+\textbf{Sparsh Mukthi} & \hfill \href{https://www.sparsh-mukthi.xyz/}{sparsh-mukthi.xyz} \\[3pt]
+\multicolumn{2}{@{}X@{}}{Touchless AI system enabling gesture, voice, and head-tracking controls for accessibility and education using edge AI.}  \\[5pt]
+
+\textbf{NaviMeet} & \hfill \href{https://navimeet.xyz/}{navimeet.xyz} \\[3pt]
+\multicolumn{2}{@{}X@{}}{AI-powered meeting point finder integrating Google Maps APIs and Vertex AI for optimal group navigation.}  \\[5pt]
+
+\textbf{Paraso} & \hfill \href{https://github.com/vigneshbs33/Paraso-Agentic-AI-Control-System}{github/Paraso} \\[3pt]
+\multicolumn{2}{@{}X@{}}{Agentic AI control system combining gestures, voice, and automation pipelines for intelligent desktop interaction.}  \\[5pt]
+
+\textbf{MindMate} & \hfill \href{https://github.com/vigneshbs33/mindmate}{github/mindmate} \\[3pt]
+\multicolumn{2}{@{}X@{}}{Flutter-based AI companion offering conversational memory and context-aware interaction.}  \\[5pt]
+
+\textbf{Tiz-Gun} & \hfill \href{https://tiz-gun.vercel.app/}{tiz-gun.vercel.app} \\[3pt]
+\multicolumn{2}{@{}X@{}}{Typing-based shooter game with real-time word recognition, progressive difficulty, and responsive browser gameplay.}  \\
+
+\end{tabularx}
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+\section{Education}
+\begin{tabularx}{\linewidth}{@{}l X@{}}	
+2024 – 2028 & \textbf{Bachelor of Engineering in Computer and Information Science}, \textbf{Bangalore Institute of Technology (VTU)} \\
+& Currently in 3\textsuperscript{rd} semester with a CGPA of 9.1/10 \\
+\end{tabularx}
+
+
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS
+%----------------------------------------------------------------------------------------
+% add these once in your preamble
+
+
+\section{Achievements}
+
+\begin{tabularx}{\linewidth}{@{}X r@{}}
+
+\textbf{Hack Aventus 3.0 — 1\textsuperscript{st} Place, ₹100K} & \href{https://devfolio.co/projects/sparsh-mukthi-5a19}{Details} \\
+Developed \textit{Sparsh Mukthi}, a touchless AI accessibility platform using gesture and voice recognition; recognized for innovation and scalability. & \\[6pt]
+
+\textbf{Google Maps Platform Awards — Best of Travel (Top Fan Vote)} & \href{https://mapsplatform.google.com/awards/?nominee=navi-meet}{Details} \\
+Honored for \textit{NaviMeet}, an AI-powered meeting-point recommender built with Google Maps APIs and Vertex AI. & \\[6pt]
+
+\textbf{Hack Academia — 2\textsuperscript{nd} Place, ₹15K} & \href{https://www.linkedin.com/posts/vigneshbs-dev_hackademia-hackwithindia-hackathon-activity-7366155378897661952-HsNE}{Details} \\
+Built an intelligent agent solution addressing education workflows through automation and real-time analytics. & \\[6pt]
+
+\textbf{Infinity Code Hackathon (International) — 1\textsuperscript{st} Place, \$25K Credits} & \href{https://devpost.com/software/sparsh-mukthi-t6qlkr}{Details} \\
+Awarded for technical depth and accessibility innovation for the \textit{Sparsh Mukthi} project. & \\[6pt]
+
+\textbf{HackVortex Codestorm 5.0 — 2\textsuperscript{nd} Place} & \href{https://devpost.com/software/sparsh-mukthi-t6qlkr}{Details} \\
+Recognized for engineering excellence in an AI-driven accessibility solution. & \\[6pt]
+
+\textbf{AsterHacks — Winner} & \href{https://devpost.com/software/sparsh-mukthi-t6qlkr}{Details} \\
+Won for innovation in real-time assistive AI applications. & \\[6pt]
+
+\textbf{Omnitrix — ₹5K Prize} & \href{https://www.linkedin.com/posts/vigneshbs-dev_omnitrix2025-hackathon-ai-activity-7388638930990096384-ali-}{Details} \\
+Built a multimodal interaction system that streamlines user experience with AI-driven automation. & \\[6pt]
+
+\textbf{Pragyan Think2Impact — 3\textsuperscript{rd} Place, ₹8K} & \href{https://www.linkedin.com/posts/vigneshbs-dev_pragyanideathon-winningstreak-hackathon-activity-7389708204362022912-Ojrb}{Details} \\
+Presented a production-ready prototype emphasizing accessibility and practical deployment. & \\
+
+\end{tabularx}
+
+%-------------------------------------------------------------------------------
+%	SKILLS
+%----------------------------------------------------------------------------------------
+\section{Skills}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+Programming & \normalsize{Python, JavaScript, TypeScript, C, C++, HTML, CSS, SQL} \\
+
+AI \& Machine Learning & \normalsize{TensorFlow, scikit-learn, OpenCV, MediaPipe, Vertex AI, Generative AI, Agentic Systems, LLM Integration} \\
+
+Frameworks \& Tools & \normalsize{React, Flask, Node.js, Express, TailwindCSS, REST APIs, Git, Docker} \\
+
+Cloud \& Deployment & \normalsize{Google Cloud Platform, Firebase, Render, GitHub Pages, CI/CD Pipelines} \\
+
+Other Competencies & \normalsize{Problem Solving, System Design, Team Collaboration, Hackathon Strategy, Technical Documentation} \\
+\end{tabularx}
+
+\vfill
+\center{\footnotesize Last updated: \today}
+
+
+\end{document}
