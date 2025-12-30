@@ -56,7 +56,7 @@ export const projects = [
         description: "Touchless AI system enabling gesture, voice, and head-tracking controls for accessibility and education using edge AI.",
         link: "https://www.sparsh-mukthi.xyz/",
         github: null,
-        image: null,
+        image: "/assets/projects/sparsh_mukthi.png",
         tags: ["AI", "Computer Vision", "Accessibility", "Edge AI"],
         featured: true
     },
@@ -78,7 +78,7 @@ export const projects = [
         description: "Full-stack educational platform for NEET, JEE, NDA, and Olympiad coaching with modern UI, responsive design, and student management features.",
         link: "https://gyanedge.co/",
         github: null,
-        image: null,
+        image: "/assets/projects/gyanedge.png",
         tags: ["React", "Full Stack", "Education", "Web Development"],
         featured: true
     },
