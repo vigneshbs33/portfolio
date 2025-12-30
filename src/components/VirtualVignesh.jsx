@@ -139,7 +139,7 @@ const VirtualVignesh = ({ onOpenResume }) => {
     const SECTION_MAP = {
         'hero': { route: '/', isHomepageSection: true },
         'about': { route: '/about', isHomepageSection: true },
-        'experience': { route: '/', isHomepageSection: true },
+        'experience': { route: '/experience', isHomepageSection: true },
         'projects': { route: '/work', isHomepageSection: true },
         'work': { route: '/work', isHomepageSection: false },
         'skills': { route: '/', isHomepageSection: true },
@@ -328,10 +328,11 @@ const VirtualVignesh = ({ onOpenResume }) => {
         return cleaned.trim();
     };
 
-    const sendMessage = async () => {
-        if (!input.trim() || isTyping) return;
+    const sendMessage = async (messageOverride) => {
+        const messageToSend = messageOverride || input;
+        if (!messageToSend.trim() || isTyping) return;
 
-        const userMessage = input.trim();
+        const userMessage = messageToSend.trim();
         setInput('');
         setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
         setIsTyping(true);
@@ -540,8 +541,7 @@ const VirtualVignesh = ({ onOpenResume }) => {
                                     key={idx}
                                     className="quick-q"
                                     onClick={() => {
-                                        setInput(q.action);
-                                        setTimeout(() => sendMessage(), 50);
+                                        sendMessage(q.action);
                                     }}
                                 >
                                     {q.label}
