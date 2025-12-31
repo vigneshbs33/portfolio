@@ -1,0 +1,9 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#f0fff0"/>
+  <text x="200" y="150" text-anchor="middle" font-family="Arial" font-size="24" fill="#333">
+    EthikNetra
+  </text>
+  <text x="200" y="180" text-anchor="middle" font-family="Arial" font-size="16" fill="#666">
+    AI Hiring Assistant
+  </text>
+</svg> 

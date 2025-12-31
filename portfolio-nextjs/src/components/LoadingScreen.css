@@ -1,0 +1,252 @@
+/* ================================
+   LOADING SCREEN - Premium Animation
+   ================================ */
+
+.loading-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #050810 0%, #0a0f1a 50%, #080c14 100%);
+    overflow: hidden;
+}
+
+/* ================================
+   Background Effects
+   ================================ */
+
+.loading-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.loading-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: gridPulse 4s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+.loading-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: glowFloat 6s ease-in-out infinite;
+}
+
+.loading-glow-1 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+    top: 30%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+}
+
+.loading-glow-2 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.2) 0%, transparent 70%);
+    bottom: 20%;
+    right: 30%;
+    animation-delay: -3s;
+}
+
+@keyframes glowFloat {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.2); }
+}
+
+/* Particles */
+.loading-particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(59, 130, 246, 0.6);
+    border-radius: 50%;
+    left: var(--x);
+    bottom: -10px;
+    animation: particleRise var(--duration) ease-out infinite;
+    animation-delay: var(--delay);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+@keyframes particleRise {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* ================================
+   Content
+   ================================ */
+
+.loading-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+    z-index: 1;
+}
+
+/* Logo Container */
+.loading-logo {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(14, 165, 233, 0.1));
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    border-radius: 30px;
+    box-shadow: 
+        0 0 30px rgba(59, 130, 246, 0.3),
+        0 0 60px rgba(59, 130, 246, 0.15),
+        inset 0 0 30px rgba(59, 130, 246, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.loading-logo svg {
+    width: 70px;
+    height: 70px;
+}
+
+.loading-logo img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+/* Text */
+.loading-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.loading-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.loading-tagline {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+}
+
+/* Progress Bar */
+.loading-progress-container {
+    width: 200px;
+    height: 3px;
+    background: rgba(59, 130, 246, 0.15);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.loading-progress {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #60A5FA, #3B82F6, #1E40AF);
+    border-radius: 3px;
+    transform-origin: left;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+}
+
+/* ================================
+   Neural Network Animation in Logo
+   ================================ */
+
+.neural-node {
+    fill: #3B82F6;
+    animation: nodePulse 2s ease-in-out infinite;
+}
+
+.neural-node:nth-child(2) { animation-delay: 0.3s; }
+.neural-node:nth-child(3) { animation-delay: 0.6s; }
+.neural-node:nth-child(4) { animation-delay: 0.9s; }
+.neural-node:nth-child(5) { animation-delay: 1.2s; }
+
+@keyframes nodePulse {
+    0%, 100% { 
+        fill: #3B82F6;
+        filter: drop-shadow(0 0 3px rgba(59, 130, 246, 0.5));
+    }
+    50% { 
+        fill: #60A5FA;
+        filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.8));
+    }
+}
+
+.neural-line {
+    stroke: url(#lineGradient);
+    stroke-width: 1.5;
+    fill: none;
+    stroke-dasharray: 100;
+    animation: lineFlow 3s ease-in-out infinite;
+}
+
+@keyframes lineFlow {
+    0% { stroke-dashoffset: 100; opacity: 0.3; }
+    50% { stroke-dashoffset: 0; opacity: 1; }
+    100% { stroke-dashoffset: -100; opacity: 0.3; }
+}
+
+/* ================================
+   Responsive
+   ================================ */
+
+@media (max-width: 480px) {
+    .loading-logo {
+        width: 100px;
+        height: 100px;
+        border-radius: 24px;
+    }
+
+    .loading-logo svg {
+        width: 56px;
+        height: 56px;
+    }
+
+    .loading-name {
+        font-size: 1.25rem;
+    }
+
+    .loading-progress-container {
+        width: 160px;
+    }
+}
