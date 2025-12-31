@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://www.vigneshbs.xyz/sitemap.xml
+Sitemap: https://vigneshbs.xyz/sitemap.xml
