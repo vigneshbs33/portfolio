@@ -53,16 +53,18 @@ const Contact = () => {
                     name: formData.name,
                     email: formData.email,
                     message: formData.message,
-                    _subject: `Portfolio Contact: ${formData.name}`,
-                    _next: 'https://vigneshbs.xyz/#contact',
+                    _subject: `Portfolio Contact from ${formData.name}`,
+                    _captcha: 'false'
                 })
             });
 
-            if (response.ok) {
+            const result = await response.json();
+
+            if (result.success === 'true' || result.success === true) {
                 setStatus({ type: 'success', message: 'Message sent successfully! I\'ll get back to you soon.' });
                 setFormData({ name: '', email: '', message: '' });
             } else {
-                throw new Error('Failed to send');
+                throw new Error(result.message || 'Failed to send');
             }
         } catch (error) {
             setStatus({ type: 'error', message: 'Failed to send message. Please try again or email directly.' });
