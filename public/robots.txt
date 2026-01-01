@@ -1,6 +1,33 @@
 # robots.txt for vigneshbs.xyz
+# Portfolio of Vignesh B S - AI/ML Engineer
+
 User-agent: *
+Allow: /
+Disallow: /api/
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Google-specific directives
+User-agent: Googlebot
+Allow: /
+
+# Bing-specific directives
+User-agent: Bingbot
+Allow: /
+
+# Social Media Bots
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: LinkedInBot
 Allow: /
 
 # Sitemap location
 Sitemap: https://vigneshbs.xyz/sitemap.xml
+
+# Host
+Host: https://vigneshbs.xyz
