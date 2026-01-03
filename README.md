@@ -76,7 +76,7 @@ portfolio-3.1/
 ├── portfolio-nextjs/       # 🆕 Next.js migration (SSR for better SEO)
 │   ├── src/app/            # App Router pages
 │   ├── src/components/     # Migrated components
-│   └── package.json
+│   └── package.json*
 ├── public/                 # Static assets
 └── api/                    # Serverless functions
 ```
