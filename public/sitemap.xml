@@ -1,26 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://vigneshbs.xyz/</loc>
 <lastmod>2026-01-26</lastmod>
 <changefreq>weekly</changefreq>
 <priority>1.0</priority>
-<image:image>
-<image:loc>https://vigneshbs.xyz/assets/vignesh-b-s-portrait.jpeg</image:loc>
-<image:title>Vignesh B S - Professional Portrait</image:title>
-<image:caption>Vignesh B S - AI/ML Engineer and Agentic Systems Developer from Bangalore, India</image:caption>
-</image:image>
-<image:image>
-<image:loc>https://vigneshbs.xyz/assets/vignesh-b-s-professional.jpeg</image:loc>
-<image:title>Vignesh B S - Full Professional Photo</image:title>
-<image:caption>Vignesh B S - Full Stack Developer and AI Specialist based in Bangalore</image:caption>
-</image:image>
-<image:image>
-<image:loc>https://vigneshbs.xyz/og-image.png</image:loc>
-<image:title>Vignesh B S Portfolio Banner</image:title>
-<image:caption>Portfolio of Vignesh B S - Building Intelligent Systems</image:caption>
-</image:image>
 </url>
 <url>
 <loc>https://vigneshbs.xyz/about</loc>
