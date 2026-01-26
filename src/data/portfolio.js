@@ -10,7 +10,7 @@ export const personalInfo = {
     website: "vigneshbs.xyz",
     github: "https://github.com/vigneshbs33",
     linkedin: "https://linkedin.com/in/vigneshbs-dev",
-    profileImage: "/assets/my_close_up_image.jpeg",
+    profileImage: "/assets/vignesh-b-s-portrait.jpeg",
     fullImage: "/assets/vignesh_professional.jpg",
     resume: "/assets/Vignesh_B_S.pdf"
 };
