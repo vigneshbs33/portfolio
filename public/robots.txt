@@ -25,3 +25,4 @@ Allow: /
 
 # Sitemap location
 Sitemap: https://vigneshbs.xyz/sitemap.xml
+Sitemap: https://vigneshbs.xyz/sitemaps/sitemap.xml
