@@ -32,14 +32,34 @@
             ]
         }
     ],
-    "rewrites": [
+    "routes": [
         {
-            "source": "/api/:path*",
-            "destination": "/api/:path*"
+            "src": "/sitemap.xml",
+            "dest": "/sitemap.xml",
+            "headers": {
+                "Content-Type": "application/xml; charset=utf-8",
+                "Cache-Control": "public, max-age=3600, must-revalidate"
+            }
         },
         {
-            "source": "/((?!api|sitemap.xml|robots.txt).*)",
-            "destination": "/index.html"
+            "src": "/robots.txt",
+            "dest": "/robots.txt",
+            "headers": {
+                "Content-Type": "text/plain; charset=utf-8",
+                "Cache-Control": "public, max-age=3600, must-revalidate"
+            }
+        },
+        {
+            "src": "/assets/(.*)",
+            "dest": "/assets/$1"
+        },
+        {
+            "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|webp|woff|woff2|ttf|eot|json))",
+            "dest": "/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/index.html"
         }
     ],
     "functions": {
