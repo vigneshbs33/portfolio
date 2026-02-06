@@ -32,36 +32,14 @@
             ]
         }
     ],
-    "routes": [
+    "rewrites": [
         {
-            "src": "/sitemap.xml",
-            "dest": "/sitemap.xml",
-            "headers": {
-                "Content-Type": "application/xml; charset=utf-8",
-                "Cache-Control": "public, max-age=3600, must-revalidate"
-            }
-        },
-        {
-            "src": "/robots.txt",
-            "dest": "/robots.txt",
-            "headers": {
-                "Content-Type": "text/plain; charset=utf-8",
-                "Cache-Control": "public, max-age=3600, must-revalidate"
-            }
-        },
-        {
-            "src": "/assets/(.*)",
-            "dest": "/assets/$1"
-        },
-        {
-            "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|webp|woff|woff2|ttf|eot|json))",
-            "dest": "/$1"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/index.html"
+            "source": "/(.*)",
+            "destination": "/index.html"
         }
     ],
+    "cleanUrls": true,
+    "trailingSlash": false,
     "functions": {
         "api/chat.js": {
             "memory": 256,
