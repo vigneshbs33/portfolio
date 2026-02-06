@@ -1,4 +1,17 @@
 {
+    "redirects": [
+        {
+            "source": "/:path*",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "www.vigneshbs.xyz"
+                }
+            ],
+            "destination": "https://vigneshbs.xyz/:path*",
+            "permanent": true
+        }
+    ],
     "headers": [
         {
             "source": "/sitemap.xml",
