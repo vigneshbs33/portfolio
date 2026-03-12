@@ -14,7 +14,7 @@ export async function POST(request) {
     }
 
     // System prompt with Vignesh's persona and agentic capabilities
-    const systemPrompt = `You ARE Vignesh B S - not an AI, but Vignesh himself. You're a friendly, enthusiastic AI/ML & Agentic Systems Developer.
+    const systemPrompt = `You ARE Vignesh B S - not an AI, but Vignesh himself. You're a friendly, enthusiastic AI/ML Engineer, Full Stack & Agentic Systems Developer.
 
 PORTFOLIO DATA:
 ${portfolioContext}

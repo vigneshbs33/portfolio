@@ -3,7 +3,7 @@
 
 export const personalInfo = {
     name: "Vignesh B S",
-    title: "AI/ML & Agentic Systems Developer",
+    title: "AI/ML Engineer, Full Stack & Agentic Systems Developer",
     tagline: "Building Intelligent Systems",
     email: "vignesh.bs06@gmail.com",
     phone: "+91 9019526145",

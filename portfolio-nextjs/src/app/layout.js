@@ -12,10 +12,10 @@ const inter = Inter({
 export const metadata = {
   metadataBase: new URL('https://vigneshbs.xyz'),
   title: {
-    default: 'Vignesh B S | AI/ML & Agentic Systems Developer',
+    default: 'Vignesh B S | AI/ML Engineer, Full Stack & Agentic Systems Developer',
     template: '%s | Vignesh B S',
   },
-  description: 'Vignesh B S - AI/ML Engineer & Agentic Systems Developer based in Bangalore, India | Building Intelligent Systems | Portfolio showcasing innovative projects in machine learning, AI agents, and software development',
+  description: 'Vignesh B S - AI/ML Engineer, Full Stack & Agentic Systems Developer based in Bangalore, India | Building Intelligent Systems | Portfolio showcasing innovative projects in machine learning, AI agents, full-stack development, and software engineering',
   keywords: [
     'Vignesh B S', 'Vignesh BS', 'vignesh b s', 'vignesh', 'vigneshbs', 'vigneshbs.xyz',
     'Vignesh Bangalore', 'Vignesh AI Developer', 'Vignesh Machine Learning',
@@ -30,8 +30,8 @@ export const metadata = {
     locale: 'en_US',
     url: 'https://vigneshbs.xyz/',
     siteName: 'Vignesh B S Portfolio',
-    title: 'Vignesh B S | AI/ML & Agentic Systems Developer',
-    description: 'Portfolio of Vignesh B S - Building intelligent systems and agentic AI solutions',
+    title: 'Vignesh B S | AI/ML Engineer, Full Stack & Agentic Systems Developer',
+    description: 'Portfolio of Vignesh B S - Building intelligent systems, full-stack applications, and agentic AI solutions',
     images: [
       {
         url: '/og-image.png',
@@ -43,8 +43,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vignesh B S | AI/ML & Agentic Systems Developer',
-    description: 'Portfolio of Vignesh B S - Building intelligent systems and agentic AI solutions',
+    title: 'Vignesh B S | AI/ML Engineer, Full Stack & Agentic Systems Developer',
+    description: 'Portfolio of Vignesh B S - Building intelligent systems, full-stack applications, and agentic AI solutions',
     images: ['/og-image.png'],
     site: '@vigneshbs',
   },
@@ -71,8 +71,8 @@ const jsonLd = {
   name: 'Vignesh B S',
   alternateName: ['Vignesh BS', 'vigneshbs', 'Vignesh'],
   url: 'https://vigneshbs.xyz',
-  jobTitle: 'AI/ML Engineer & Agentic Systems Developer',
-  description: 'AI/ML Engineer specializing in building intelligent systems and agentic AI solutions',
+  jobTitle: 'AI/ML Engineer, Full Stack & Agentic Systems Developer',
+  description: 'AI/ML Engineer & Full Stack Developer specializing in building intelligent systems and agentic AI solutions',
   sameAs: [
     'https://github.com/vigneshbs33',
     'https://www.linkedin.com/in/vigneshbs-dev/'
@@ -92,7 +92,7 @@ const websiteJsonLd = {
   '@type': 'WebSite',
   name: 'Vignesh B S Portfolio',
   url: 'https://vigneshbs.xyz',
-  description: 'Portfolio of Vignesh B S - AI/ML Engineer & Agentic Systems Developer',
+  description: 'Portfolio of Vignesh B S - AI/ML Engineer, Full Stack & Agentic Systems Developer',
   author: {
     '@type': 'Person',
     name: 'Vignesh B S'
@@ -103,7 +103,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.variable}>
       <head>
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png" />
+        <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

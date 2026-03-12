@@ -142,7 +142,7 @@ const LoadingScreen = ({ onComplete }) => {
 
                 <div className="loading-text" ref={textRef}>
                     <span className="loading-name">Vignesh B S</span>
-                    <span className="loading-tagline">AI/ML & Agentic Systems Developer</span>
+                    <span className="loading-tagline">AI/ML Engineer | Full Stack & Agentic Systems Developer</span>
                 </div>
 
                 <div className="loading-progress-container">

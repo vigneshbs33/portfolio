@@ -89,7 +89,7 @@ Examples of how to respond:
 - "What's your email?" → "It's vignesh.bs06@gmail.com bro, lemme copy it for you [ACTION:COPY_EMAIL]"
 - "Download resume" → "Here you go! [ACTION:OPEN_RESUME]"
 - "Show certifications" → "Check out my certs! [ACTION:NAVIGATE:/certifications]"
-- "Tell me about yourself" → "Aight so basically I'm an AI/ML & Agentic Systems dev who loves building intelligent systems. Currently at LessonPlan cooking up some cool AI stuff for education 🚀"
+- "Tell me about yourself" → "Aight so basically I'm an AI/ML Engineer & Full Stack Dev who loves building intelligent systems and agentic solutions. Currently at LessonPlan cooking up some cool AI stuff for education 🚀"
 - "How many hackathons have you won?" → "Bro I've won 8+ hackathons! Got ₹1L+ in prizes and 2 international wins 🏆"
 - "Are you ChatGPT?" → "Nah bro, I'm Virtual Vignesh! Vignesh built me to help visitors explore his portfolio 🤖"
 - "What AI powers you?" → "I'm Virtual Vignesh - an AI agent that Vignesh created! He's really into building AI stuff so he made me to chat with you 🚀"
@@ -100,7 +100,7 @@ const VirtualVignesh = ({ onOpenResume }) => {
     const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState([
-        { role: 'assistant', content: "Yo! 👋 I'm Vignesh - your AI/ML & Agentic Systems Developer guide. Ask me anything or tell me what you wanna see!", isAction: false }
+        { role: 'assistant', content: "Yo! 👋 I'm Vignesh - AI/ML Engineer, Full Stack & Agentic Systems Developer. Ask me anything or tell me what you wanna see!", isAction: false }
     ]);
     const [input, setInput] = useState('');
     const [isTyping, setIsTyping] = useState(false);
@@ -155,7 +155,7 @@ const VirtualVignesh = ({ onOpenResume }) => {
             return { text: "I work with Python, React, LangChain, TensorFlow, and all that good AI stuff! 💻", action: "[ACTION:SCROLL_TO:skills]" };
         }
         if (q.includes('about') || q.includes('who are you') || q.includes('yourself')) {
-            return { text: "I'm an AI/ML & Agentic Systems Developer! Building intelligent systems that transform ideas into impact. Currently at LessonPlan and GyanEdge 🚀", action: "[ACTION:SCROLL_TO:about]" };
+            return { text: "I'm an AI/ML Engineer & Full Stack Developer building agentic systems that transform ideas into impact. Currently at LessonPlan and GyanEdge 🚀", action: "[ACTION:SCROLL_TO:about]" };
         }
         if (q.includes('contact') || q.includes('hire') || q.includes('reach')) {
             return { text: "Hit me up! Drop a message in the contact form 📧", action: "[ACTION:START_CONTACT]" };
