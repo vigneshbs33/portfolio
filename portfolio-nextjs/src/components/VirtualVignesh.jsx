@@ -75,7 +75,7 @@ Examples of how to respond:
 - "Download resume" → "Here you go! [ACTION:OPEN_RESUME]"
 - "Show certifications" → "Check out my certs! [ACTION:NAVIGATE:/certifications]"
 - "Tell me about yourself" → "Aight so basically I'm an AI/ML Engineer & Full Stack Dev who loves building intelligent systems and agentic solutions. Currently at LessonPlan cooking up some cool AI stuff for education 🚀"
-- "How many hackathons have you won?" → "Bro I've won 8+ hackathons! Got ₹1L+ in prizes and 2 international wins 🏆"
+- "How many hackathons have you won?" → "Bro I've won 8+ hackathons! Got ₹2L+ in prizes and 2 international wins 🏆"
 
 Answer questions using the portfolio context above. Be conversational and natural.`;
 
@@ -100,7 +100,7 @@ const VirtualVignesh = ({ onOpenResume }) => {
             return { text: "Yoo check out my projects! I've built some cool AI stuff 🔥", action: "[ACTION:SCROLL_TO:projects]" };
         }
         if (q.includes('achieve') || q.includes('hackathon') || q.includes('win') || q.includes('award')) {
-            return { text: "Bro I've got 8+ hackathon wins with ₹1L+ in prizes and 2 international wins! 🏆", action: "[ACTION:SCROLL_TO:achievements]" };
+            return { text: "Bro I've got 8+ hackathon wins with ₹2L+ in prizes and 2 international wins! 🏆", action: "[ACTION:SCROLL_TO:achievements]" };
         }
         if (q.includes('certif') || q.includes('cert')) {
             return { text: "Check out my certifications and training! 📜", action: "[ACTION:NAVIGATE:/certifications]" };

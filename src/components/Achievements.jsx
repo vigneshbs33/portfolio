@@ -111,7 +111,7 @@ const Achievements = () => {
                     </div>
                     <div className="achievement-stat stat-highlight">
                         <span className="stat-icon">💰</span>
-                        <span className="stat-value">₹1L+</span>
+                        <span className="stat-value">₹2L+</span>
                         <span className="stat-label">Prize Value</span>
                     </div>
                     <div className="achievement-stat">

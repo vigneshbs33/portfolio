@@ -21,7 +21,7 @@ I'm **Vignesh B S**, an AI/ML Engineer and Full Stack Developer passionate about
 - 🎓 **B.E. Computer & Information Science** @ Bangalore Institute of Technology (VTU) | CGPA: 9.1
 - 💼 **AI Systems Developer** @ LessonPlan
 - 💼 **Software Developer** @ GyanEdge
-- 🏆 **8+ Hackathon Wins** with ₹1L+ in prizes and 2 international wins
+- 🏆 **8+ Hackathon Wins** with ₹2L+ in prizes and 2 international wins
 
 ---
 
@@ -41,7 +41,7 @@ I'm **Vignesh B S**, an AI/ML Engineer and Full Stack Developer passionate about
 
 | Hackathon | Position | Prize |
 |-----------|----------|-------|
-| Hack Aventus 3.0 | 🥇 1st Place | ₹100K |
+| Hack Aventus 3.0 | 🥇 1st Place | ₹1L |
 | Infinity Code (International) | 🥇 1st Place | $25K Credits |
 | Google Maps Platform Awards | Best of Travel | - |
 | Hack Academia | 🥈 2nd Place | ₹15K |

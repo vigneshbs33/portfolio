@@ -122,7 +122,7 @@ export const achievements = [
         id: 1,
         title: "Hack Aventus 3.0",
         position: "1st Place",
-        prize: "₹100K",
+        prize: "₹1L",
         description: "Developed Sparsh Mukthi, a touchless AI accessibility platform using gesture and voice recognition.",
         link: "https://devfolio.co/projects/sparsh-mukthi-5a19",
         image: "/assets/Certificates/aventus-1st-1L-winner-hackthon.jpeg",
