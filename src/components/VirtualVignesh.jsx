@@ -325,7 +325,7 @@ const VirtualVignesh = () => {
         } else {
             console.log('[VV] No action pattern found in response');
         }
-    }, [onOpenResume, navigate, smartNavigate]);
+    }, [navigate, smartNavigate]);
 
     useEffect(() => {
         if (isOpen && inputRef.current) {
