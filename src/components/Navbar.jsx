@@ -21,7 +21,6 @@ const Navbar = () => {
         { name: 'Experience', href: '/experience' },
         { name: 'Achievements', href: '/achievements' },
         { name: 'Certifications', href: '/certifications' },
-        { name: 'Resume', href: '/resume' },
     ];
 
     useEffect(() => {

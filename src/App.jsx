@@ -15,9 +15,7 @@ import Achievements from './components/Achievements';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import VirtualVignesh from './components/VirtualVignesh';
-import ResumeModal from './components/ResumeModal';
 import CursorTrail from './components/CursorTrail';
-import Resume from './components/Resume';
 import LoadingScreen from './components/LoadingScreen';
 import Certifications from './components/Certifications';
 
@@ -49,7 +47,6 @@ const ScrollToTop = () => {
 
 function App() {
     const [isLoading, setIsLoading] = useState(true);
-    const [showResume, setShowResume] = useState(false);
     const cursorGlowRef = useRef(null);
 
     const handleLoadingComplete = () => {
@@ -197,7 +194,6 @@ function App() {
                                 <Route path="/about" element={<About />} />
                                 <Route path="/experience" element={<Experience />} />
                                 <Route path="/achievements" element={<Achievements />} />
-                                <Route path="/resume" element={<Resume />} />
                                 <Route path="/certifications" element={<Certifications />} />
                                 <Route path="/contact" element={<Contact />} />
                             </Routes>
@@ -205,8 +201,7 @@ function App() {
                             <Footer />
                         </div>
 
-                        <VirtualVignesh onOpenResume={() => setShowResume(true)} />
-                        <ResumeModal isOpen={showResume} onClose={() => setShowResume(false)} />
+                        <VirtualVignesh />
                     </div>
                 </SmoothScroll>
             </Router>

@@ -74,11 +74,9 @@ If user wants to see something, include the action command in your response:
 [ACTION:SCROLL_TO:skills] - Show skills
 [ACTION:SCROLL_TO:achievements] - Show hackathon wins
 [ACTION:SCROLL_TO:contact] - Show contact info
-[ACTION:OPEN_RESUME] - Open resume modal
 [ACTION:NAVIGATE:/work] - Go to projects page
 [ACTION:NAVIGATE:/achievements] - Go to achievements page
 [ACTION:NAVIGATE:/certifications] - Go to certifications page
-[ACTION:NAVIGATE:/resume] - Go to resume page
 [ACTION:NAVIGATE:/] - Go to home page
 [ACTION:OPEN_LINK:url] - Open external link
 [ACTION:COPY_EMAIL] - Copy email to clipboard
@@ -87,7 +85,7 @@ If user wants to see something, include the action command in your response:
 Examples of how to respond:
 - "Show me your projects" → "Yoo check these out! 🔥 [ACTION:SCROLL_TO:projects]"
 - "What's your email?" → "It's vignesh.bs06@gmail.com bro, lemme copy it for you [ACTION:COPY_EMAIL]"
-- "Download resume" → "Here you go! [ACTION:OPEN_RESUME]"
+- "Can I see your resume?" → "Feel free to reach out via the contact form or email for my resume! 📧 [ACTION:START_CONTACT]"
 - "Show certifications" → "Check out my certs! [ACTION:NAVIGATE:/certifications]"
 - "Tell me about yourself" → "Aight so basically I'm an AI/ML Engineer & Full Stack Dev who loves building intelligent systems and agentic solutions. Currently at LessonPlan cooking up some cool AI stuff for education 🚀"
 - "How many hackathons have you won?" → "Bro I've won 8+ hackathons! Got ₹2L+ in prizes and 2 international wins 🏆"
@@ -96,7 +94,7 @@ Examples of how to respond:
 
 Answer questions using the portfolio context above. Be conversational and natural.`;
 
-const VirtualVignesh = ({ onOpenResume }) => {
+const VirtualVignesh = () => {
     const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState([
@@ -149,7 +147,7 @@ const VirtualVignesh = ({ onOpenResume }) => {
             return { text: "Check out my certifications and training! 📜", action: "[ACTION:NAVIGATE:/certifications]" };
         }
         if (q.includes('resume') || q.includes('cv')) {
-            return { text: "Here's my resume bro!", action: "[ACTION:OPEN_RESUME]" };
+            return { text: "Hit me up via the contact form or email if you'd like a copy of my resume! 📧", action: "[ACTION:START_CONTACT]" };
         }
         if (q.includes('skill') || q.includes('tech') || q.includes('stack')) {
             return { text: "I work with Python, React, LangChain, TensorFlow, and all that good AI stuff! 💻", action: "[ACTION:SCROLL_TO:skills]" };
@@ -190,7 +188,6 @@ const VirtualVignesh = ({ onOpenResume }) => {
         'skills': { route: '/', isHomepageSection: true },
         'achievements': { route: '/achievements', isHomepageSection: true },
         'contact': { route: '/contact', isHomepageSection: true },
-        'resume': { route: '/resume', isHomepageSection: false },
         'certifications': { route: '/certifications', isHomepageSection: false },
     };
 
@@ -276,13 +273,6 @@ const VirtualVignesh = ({ onOpenResume }) => {
                     return;
                 }
 
-                if (action === 'openresume') {
-                    console.log('[VV] Opening resume');
-                    onOpenResume?.();
-                    setLastAction('Opened resume');
-                    return;
-                }
-
                 if (action === 'showproject' && project) {
                     console.log('[VV] Showing project:', project);
                     smartNavigate('projects');
@@ -309,11 +299,6 @@ const VirtualVignesh = ({ onOpenResume }) => {
                 case 'NAVIGATE':
                     navigate(param);
                     setLastAction(`Navigated to ${param}`);
-                    break;
-
-                case 'OPEN_RESUME':
-                    onOpenResume?.();
-                    setLastAction('Opened resume');
                     break;
 
                 case 'OPEN_LINK':

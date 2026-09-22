@@ -12,7 +12,7 @@ export const personalInfo = {
     linkedin: "https://linkedin.com/in/vigneshbs-dev",
     profileImage: "/assets/my_close_up_image.jpeg",
     fullImage: "/assets/vignesh_professional.jpg",
-    resume: "/assets/Vignesh_B_S.pdf"
+    resume: null
 };
 
 export const summary = `AI & ML Engineer and Full Stack Developer building agentic and neural-driven systems that power intelligent automation. Currently at LessonPlan as an AI Systems Developer and GyanEdge as a Software Developer, leveraging machine learning, cloud infrastructure, and full-stack development to build adaptive, real-time solutions. Skilled in AI architecture design, deployment, and optimization, with several national and international hackathon wins showcasing innovation and real-world impact.`;
@@ -211,8 +211,6 @@ export const skills = {
 export const education = {
     degree: "Bachelor of Engineering in Computer and Information Science",
     institution: "Bangalore Institute of Technology (VTU)",
-    duration: "2024 – 2028",
-    semester: "3rd",
     cgpa: "9.1/10"
 };
 

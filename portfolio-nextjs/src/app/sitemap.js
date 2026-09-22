@@ -34,12 +34,6 @@ export default function sitemap() {
             priority: 0.8,
         },
         {
-            url: `${baseUrl}/resume`,
-            lastModified: currentDate,
-            changeFrequency: 'monthly',
-            priority: 0.8,
-        },
-        {
             url: `${baseUrl}/contact`,
             lastModified: currentDate,
             changeFrequency: 'monthly',

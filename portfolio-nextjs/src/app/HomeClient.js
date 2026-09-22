@@ -14,7 +14,6 @@ import Achievements from '@/components/Achievements';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import VirtualVignesh from '@/components/VirtualVignesh';
-import ResumeModal from '@/components/ResumeModal';
 import CursorTrail from '@/components/CursorTrail';
 import LoadingScreen from '@/components/LoadingScreen';
 
@@ -113,7 +112,6 @@ const HeroSection = () => {
 
 export default function HomeClient() {
     const [isLoading, setIsLoading] = useState(true);
-    const [showResume, setShowResume] = useState(false);
     const cursorGlowRef = useRef(null);
 
     const handleLoadingComplete = () => {
@@ -156,8 +154,7 @@ export default function HomeClient() {
                     <Footer />
                 </div>
 
-                <VirtualVignesh onOpenResume={() => setShowResume(true)} />
-                <ResumeModal isOpen={showResume} onClose={() => setShowResume(false)} />
+                <VirtualVignesh />
             </div>
         </>
     );

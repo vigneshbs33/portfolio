@@ -67,9 +67,9 @@ ${portfolioContext}
 
 === AGENTIC ACTIONS ===
 When user wants to see something, include a JSON action:
-- Navigate: {"action": "navigate", "target": "about|work|skills|achievements|contact|resume|certifications"}
-- Open resume: {"action": "openResume"}
+- Navigate: {"action": "navigate", "target": "about|work|skills|achievements|contact|certifications"}
 - Scroll: {"action": "scroll", "section": "section_id"}
+- Show project: {"action": "showProject", "project": "project_name"}
 
 Examples:
 - "Show projects" → "Yo check these out man! 🔥" + {"action": "navigate", "target": "work"}
