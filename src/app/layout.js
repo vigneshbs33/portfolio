@@ -1,0 +1,4 @@
+import './globals.css';
+import {INDEX_SITE,SITE_URL} from './site-config';
+export const metadata={metadataBase:new URL(SITE_URL),title:{default:'Vignesh B S | AI & Automation',template:'%s | Vignesh B S'},description:'Vignesh B S builds machine learning, automation systems and full-stack products. Explore his projects, experience and hackathon work.',alternates:{canonical:'/'},robots:{index:INDEX_SITE,follow:INDEX_SITE},openGraph:{type:'website',url:SITE_URL,title:'Vignesh B S | AI & Automation',description:'Less busywork. More possibility.',images:[{url:'/assets/og.png',width:1200,height:630,alt:'Vignesh B S, AI, automation and products'}]},twitter:{card:'summary_large_image',title:'Vignesh B S | AI & Automation',images:['/assets/og.png']}};
+export default function Layout({children}){return <html lang="en"><body>{children}</body></html>}

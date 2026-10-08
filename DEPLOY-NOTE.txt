@@ -1,0 +1,34 @@
+VIGNESH PORTFOLIO - GENERATION 21
+
+No public deployment has been made. This is the final Next.js source archive,
+not an export of the hosted review page.
+
+RUN LOCALLY
+1. Extract the ZIP and open the vignesh-portfolio folder.
+2. Use Node.js 20.9 or newer.
+3. Run: npm ci
+4. Run: npm run dev
+5. Open http://localhost:3000
+
+PRODUCTION TEST
+npm run build
+npm run start
+
+DEPLOY WHEN YOU CHOOSE
+Import your own repository into Vercel using the Next.js preset.
+No database, secrets or environment variables are required.
+Add your domain in Vercel and follow its current DNS instructions.
+The canonical domain in src/app/site-config.js is https://vigneshbs.xyz.
+Change it before deployment if you choose a different domain.
+
+Search indexing is intentionally OFF. Change INDEX_SITE to true in
+src/app/site-config.js only when ready for public launch, then rebuild.
+Noindex is not privacy or password protection.
+
+Before launching, review the resume, external links and achievement claims,
+and check the home, achievements, resume and contact pages on your phone.
+See README.md for the archive-claim caveats and content locations.
+
+The archive excludes node_modules, .next, review-only candidate media,
+credentials and temporary build/test files. npm ci installs the pinned
+packages from package-lock.json.
