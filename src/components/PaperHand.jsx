@@ -6,7 +6,8 @@ const ease=t=>1-Math.pow(1-t,4);
 export default function PaperHand({hand,cursor,pinch=false}){
  const homes=useRef(null),seed=useRef(null),target=useRef(null),motion=useRef({points:[],shown:false}),[frame,setFrame]=useState(null);
  useEffect(()=>{
-  const host=homes.current,hero=host.closest('.hero');if(!hero)return;
+  const host=homes.current,hero=host.closest('.hero');
+  if(!hero){host.classList.add('viewport');const random=Array.from({length:21},()=>[Math.random(),Math.random()]);const place=()=>{[...host.children].forEach((el,i)=>{const [u,v]=random[i];el.style.left=(12+u*(innerWidth-24))+'px';el.style.top=(100+v*(innerHeight-130))+'px'})};place();addEventListener('resize',place);return()=>removeEventListener('resize',place)}
   // Sample once per mount. Reuse the samples when the responsive layout changes.
   const random=Array.from({length:6000},()=>[Math.random(),Math.random()]);
   const place=()=>{const box=hero.getBoundingClientRect();
