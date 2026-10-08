@@ -37,10 +37,10 @@ The single `INDEX_SITE` flag controls metadata, robots.txt and sitemap. While fa
 - Public resume: `public/assets/resume-public.pdf` (phone removed for the website)
 - Projects: Outsurance, GARUDA and Sparsh Mukthi, with the exact project bullets from the supplied resume.
 - Outsurance and GARUDA use real project captures. Sparsh uses a clearly labelled concept illustration; its supplied project link is retained. Verify external links at launch.
-- Experience: expandable paper timeline for Fidelity (incoming), LessonPlan, GyanEdge and OpenIntervue.
+- Experience: expandable paper timeline for Fidelity (upcoming), LessonPlan, GyanEdge and OpenIntervue.
 - Project layouts and the timeline use locally authored components; no external design-repository code is bundled.
 - Gemini-generated back-view portrait is based on the supplied reference. The figure is composited into a code-built scene.
-- The supplied Fidelity internship is described as incoming, without assumed dates.
+- The supplied Fidelity internship is described as upcoming, without assumed dates.
 
 The phone number is not shown or linked on the site, resume image or public PDF. Assets are local, with no analytics or data-collection form. Project links go to external sites. Reduced-motion settings keep content readable without the animated entrance. Projects and Experience work on phone layouts without a long desktop scroll sequence.
 

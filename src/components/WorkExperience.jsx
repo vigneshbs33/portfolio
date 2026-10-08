@@ -1,6 +1,6 @@
 import React,{useEffect,useRef,useState} from 'react';
 const roles=[
- {company:'Fidelity Investments',role:'Incoming Intern',date:'Upcoming',type:'Selected through campus placement',bullets:['Selected through campus placement for a two-month internship.']},
+ {company:'Fidelity Investments',role:'Upcoming Intern',date:'Upcoming',type:'Selected through campus placement',bullets:['Selected through campus placement for a two-month internship.']},
  {company:'LessonPlan',role:'AI Systems Developer',date:'Nov 2025 to Present',type:'AI systems',bullets:['Build and ship AI features for an EdTech platform: ML pipelines, agent workflows and RAG.','Own model serving, CI/CD and monitoring in production.']},
  {company:'GyanEdge',role:'Lead Developer',date:'Mar 2025 to Present',type:'Part-Time',bullets:['Lead development of a real-time online assessment platform on Supabase, from research and design through testing and release.']},
  {company:'OpenIntervue',role:'QA Engineer',date:'May 2025 to Jul 2025',type:'Intern',bullets:['Tested a live LLM interview platform for accuracy and consistency; wrote automated test plans and tracked latency.']}
