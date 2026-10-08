@@ -1,2 +1,9 @@
 import Portfolio from '../components/Portfolio';
-export default function Page(){return <Portfolio backFigure="/assets/back-figure.png" portrait="/assets/portrait.jpg" video="/assets/hero.mp4" videoPoster="/assets/hero-poster.jpg" resume="/assets/resume-public.pdf" resumePreview="/assets/resume-preview.jpg"/>}
+import {SITE_URL} from './site-config';
+// Structured data so search engines know who this site is about.
+const person={'@context':'https://schema.org','@graph':[
+ {'@type':'Person','@id':SITE_URL+'/#person',name:'Vignesh B S',alternateName:['Vignesh BS','vigneshbs33'],givenName:'Vignesh',url:SITE_URL+'/',image:{'@type':'ImageObject','@id':SITE_URL+'/#portrait',url:SITE_URL+'/assets/vignesh-b-s.jpg',width:800,height:800,caption:'Vignesh B S'},jobTitle:'AI and Automation Developer',description:'AI and automation developer from Bengaluru, India, building machine learning, automation systems and full-stack products.',alumniOf:{'@type':'CollegeOrUniversity',name:'Bangalore Institute of Technology'},address:{'@type':'PostalAddress',addressLocality:'Bengaluru',addressRegion:'Karnataka',addressCountry:'IN'},knowsAbout:['Artificial intelligence','Machine learning','Automation','Full-stack development'],sameAs:['https://github.com/vigneshbs33','https://linkedin.com/in/vigneshbs-dev']},
+ {'@type':'WebSite','@id':SITE_URL+'/#website',url:SITE_URL+'/',name:'Vignesh B S',alternateName:['Vignesh BS','vigneshbs.xyz'],publisher:{'@id':SITE_URL+'/#person'}},
+ {'@type':'ProfilePage','@id':SITE_URL+'/#profile',url:SITE_URL+'/',name:'Vignesh B S | AI & Automation Developer, Bengaluru',isPartOf:{'@id':SITE_URL+'/#website'},mainEntity:{'@id':SITE_URL+'/#person'},primaryImageOfPage:{'@id':SITE_URL+'/#portrait'}}
+]};
+export default function Page(){return <><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(person).replace(/</g,'\\u003c')}}/><Portfolio backFigure="/assets/back-figure.png" portrait="/assets/portrait.jpg" video="/assets/hero.mp4" videoPoster="/assets/vignesh-b-s-hero.jpg" resume="/assets/resume-public.pdf" resumePreview="/assets/resume-preview.jpg"/></>}

@@ -38,3 +38,5 @@ V5.5: optional local camera hand control. Nothing accesses the camera before opt
 V5.6: original landmark-assembly/pinch reveal and larger shadow-grounded desktop figure. Previous room/intro recoverable in design-history/v5.5.
 
 V5.7: dark free-floating anatomical SVG hand, soft intro reveal and smoother board fades.
+
+V5.12 (Oct 8 2026): search indexing ON (INDEX_SITE true), canonical https://www.vigneshbs.xyz, Person JSON-LD on the home page, sitemap with image entries, new share image /assets/vignesh-b-s-og.jpg.
