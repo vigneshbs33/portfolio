@@ -287,3 +287,5 @@ body:has(.hl) .hand-control-open{visibility:hidden}
 .hand-dot-homes.viewport{position:fixed;inset:0;width:100%;height:100%;margin:0;padding:0;border:0;display:block;pointer-events:none;z-index:1}
 .hand-dot-homes.viewport span{position:absolute;display:block;transform:none!important;opacity:0}
 .portfolio>.hand-control{position:static;width:0;height:0}
+body:has(.site-menu-overlay) .hand-control-open,body:has(.site-menu-overlay) .hand-camera-off{visibility:hidden}
+.site-menu-overlay a:focus-visible,.site-menu-overlay button:focus-visible{outline:2px solid #0f6b3f;outline-offset:2px}
