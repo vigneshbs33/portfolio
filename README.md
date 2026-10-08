@@ -58,4 +58,12 @@ The home photograph pile retains 14 supplied images. Only identifiable photos ge
 
 Menu opens a single full overlay on phone and desktop, showing Projects, Experience, Achievements, Contact, Resume, GitHub and LinkedIn. It closes on link selection or Escape.
 
-Search indexing remains false. No public deployment has been made. This is the actual Next.js source corresponding to private review generation 21. The homepage uses the paper project gallery; an older unused scene component is not rendered.
+Search indexing remains false. No public deployment has been made. This is the actual Next.js source corresponding to private review generation 23. The homepage uses the paper project gallery; an older unused scene component is not rendered.
+
+## Face favicon
+
+The favicon is a tight face crop of the supplied portrait cutout. Includes favicon.ico (16/32/48), favicon-32x32.png, favicon-192.png and apple-touch-icon.png (180). Icons are declared in app metadata. No other site content or indexing settings changed. Redeploy this source to update the public site; browser favicon caches may need a refresh.
+
+## Restored project room (v5.3)
+
+The original Three.js back-view project room is restored before the full case studies, with Outsurance, GARUDA and Sparsh Mukthi and their resume-grounded descriptions. On desktop with WebGL and normal motion, scroll moves the camera from the back-view figure through each project board. Smaller screens and reduced-motion use readable static cards. The private hosted review includes an actual recording because its host cannot bundle Three.js; this source uses the real interactive scene. Menu, achievement imagery, slower photo pile, face favicon and indexing settings are preserved.
