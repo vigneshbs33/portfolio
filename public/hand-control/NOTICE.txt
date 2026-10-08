@@ -1,0 +1,2 @@
+MediaPipe Tasks Vision0.10.20, Copyright The MediaPipe Authors. Apache License2.0. Runtime files and HandLandmarker full model unmodified. See LICENSE and model-card.pdf. Original gesture UI by the portfolio author. Source package: https://registry.npmjs.org/@mediapipe/tasks-vision/0.10.20
+Model: https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task

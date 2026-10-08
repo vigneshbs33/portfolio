@@ -1,4 +1,4 @@
-VIGNESH PORTFOLIO - GENERATION 23
+VIGNESH PORTFOLIO - GENERATION 27
 
 No public deployment has been made. This is the final Next.js source archive,
 not an export of the hosted review page.
@@ -32,3 +32,9 @@ See README.md for the archive-claim caveats and content locations.
 The archive excludes node_modules, .next, review-only candidate media,
 credentials and temporary build/test files. npm ci installs the pinned
 packages from package-lock.json.
+
+V5.5: optional local camera hand control. Nothing accesses the camera before opt-in. MediaPipe, not OpenCV. See README and public/hand-control/LICENSE. Hosted review shows UI only; run this source on localhost or HTTPS for the actual camera demo.
+
+V5.6: original landmark-assembly/pinch reveal and larger shadow-grounded desktop figure. Previous room/intro recoverable in design-history/v5.5.
+
+V5.7: dark free-floating anatomical SVG hand, soft intro reveal and smoother board fades.
